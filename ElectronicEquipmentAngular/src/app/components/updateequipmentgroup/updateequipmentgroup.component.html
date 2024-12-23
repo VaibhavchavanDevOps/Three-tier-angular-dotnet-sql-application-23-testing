@@ -1,0 +1,25 @@
+<form [formGroup]="equipmentGroupForm" (ngSubmit)="equipmentGroupUpdated()"  class="border p-3">
+    <div class="row g-0">
+        <div class="col text-center p-2 mb-3 gb-light">
+           <span class="fs-3">Equipment Group</span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="equipmentgroupname" class="form-label">EquipmentGroup Name</label>
+        <input type="text" class="form-control" id="equipmentgroupname" formControlName="equipmentgroupname">
+    </div>
+    <div class="form-group row mb-3">
+        <label>Equipment Category</label>
+        <select   class="form-control" >
+            <option value="0" disabled selected>Select equipment category</option>
+            <option  *ngFor="let equipCat of equipmentCategoryList">{{equipCat.equipmentCategoryName}}</option>
+        </select>
+    </div>
+    <div class="row">
+        <div class="col-6 offset-3 mb-3">
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Update EquipmentGroup</button>
+            </div>
+        </div>
+    </div>
+</form>

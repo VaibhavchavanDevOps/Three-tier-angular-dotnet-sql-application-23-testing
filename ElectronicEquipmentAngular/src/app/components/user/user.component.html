@@ -1,0 +1,74 @@
+<form [formGroup]="userForm" (ngSubmit)="userAdded()"  class="border p-3">
+    <div class="row g-0">
+        <div class="col text-center p-2 mb-3 gb-light">
+           <span class="fs-2">ADD USER</span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="username" class="form-label" class="required">User Name</label>
+        <input type="text" class="form-control" id="username" formControlName="username" >
+        <div class="form-text text-danger" *ngIf="Username.errors?.['required'] && (Username.dirty || Username.touched)">
+            Please Enter Username
+        </div>
+        <div class="form-text text-danger" *ngIf="Username.errors?.['pattern'] && (Username.dirty || Username.touched)">
+             Username must start with alphabet and should not contain any spaces. 
+        </div>
+        <div class="form-text text-danger" *ngIf="Username.errors?.['maxlength'] && (Username.dirty || Username.touched)">
+            Maximum username length can be 8 characters long only.
+        </div>
+        <div class="form-text text-danger" *ngIf="Username.errors?.['minlength'] && (Username.dirty || Username.touched)">
+            Please enter username of atleast 2 characters
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="password" class="form-label" class="required">Password</label>
+        <input type="password" class="form-control" id="password" formControlName="password">
+        <div class="form-text text-danger" *ngIf="Password.errors?.['minlength'] && (Password.dirty || Password.touched)">
+            Please Enter Password of atleast 8 characters
+        </div>
+        <div class="form-text text-danger" *ngIf="Password.errors?.['maxlength'] && (Password.dirty || Password.touched)">
+            Maximum password length can be 15 characters long only.
+        </div>
+        <div class="form-text text-danger" *ngIf="Password.errors?.['required'] && (Password.dirty || Password.touched)">
+            Please Enter Password.
+        </div>
+        <div class="form-text text-danger" *ngIf="Password.errors?.['pattern'] && (Password.dirty || Password.touched)">
+            Password must contain atleast one lower case letter, uppercase letter, digit and special character.
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="confirmpassword" class="form-label" class="required">Confirm Password</label>
+        <input type="password" class="form-control" id="confirmpassword" formControlName="confirmpassword">
+        <div class="form-text text-danger" [ngStyle]="{'display':confirmPassword}">
+            Invalid Password .
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col ps-3 mb-3">
+            <div class="m-1 mb-3" class="required">Active</div>
+            <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" [value]="true" id="true" formControlName="active">
+                <label class="form-check-label" for="true">true</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" [value]="false" id="false" formControlName="active">
+                <label class="form-check-label" for="false">false</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 offset-3 mb-3">
+            <div class="d-grid">
+                <button type="submit" [disabled]="userForm.invalid" class="btn btn-primary"  >Sign Up</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mb-3">
+            <span class="me-3">Login Here</span><a routerLink="/login">Login</a>
+        </div>
+        <div class="col mb-3">
+            <span class="me-3">Update</span><a routerLink="/updateuser">Update Password</a>
+        </div>
+    </div>
+</form>

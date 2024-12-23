@@ -1,0 +1,35 @@
+<form [formGroup]="equipmentGroupForm" (ngSubmit)="equipmentGroupAdded()"  class="border p-3">
+    <div class="row g-0">
+        <div class="col text-center p-2 mb-3 gb-light">
+           <span class="fs-3">Equipment Groups</span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="equipmentgroupname" class="form-label" class="required">EquipmentGroup Name</label>
+        <input type="text" class="form-control" id="equipmentgroupname" formControlName="equipmentgroupname">
+        <div class="form-text text-danger" *ngIf="EquipmentGroup.errors?.['maxlength'] && (EquipmentGroup.dirty || EquipmentGroup.touched)">
+            Maximum Equipment Name length can be 10 characters long only.
+          </div>
+          <div class="form-text text-danger" *ngIf="EquipmentGroup.errors?.['required'] && (EquipmentGroup.dirty || EquipmentGroup.touched)">
+           Please Enter EquipmentGroup.
+          </div>
+          <div class="form-text text-danger" *ngIf="EquipmentGroup.errors?.['pattern'] && (EquipmentGroup.dirty || EquipmentGroup.touched)">
+            Please enter  correct equipmentcategory name.
+          </div>
+        </div>
+    <div class="form-group row mb-3">
+        <label>Equipment Category</label>
+        <select formControlName="equipmentcategoryid"  class="form-control" class="required">
+            <option value="" disabled selected>Select equipment category</option>
+            <option [value]="equipCat.equipmentCategoryId" *ngFor="let equipCat of equipmentCategoryList">{{equipCat.equipmentCategoryName}}</option>
+        </select>
+    </div>
+    <div class="row">
+        <div class="col-6 offset-3 mb-3">
+            <div class="d-grid">
+                <button type="submit" [disabled]="equipmentGroupForm.invalid" class="btn btn-primary">Add EquipmentGroup</button>
+            </div>
+        </div>
+    </div>
+</form>
+

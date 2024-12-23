@@ -1,0 +1,53 @@
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand ">Update Equipment</a>
+      <form class="d-flex input-group w-auto">
+        <button class="btn btn-primary" (click)="logOut()" >Log Out</button>
+      </form>
+    </div>
+</nav>
+<form [formGroup]="updateEquipmentForm" (ngSubmit)="equipmentUpdated()"  class="border p-3">
+    <div class="row mb-3">
+        <label for="equipmentname" class="form-label" class="required">Equipment Name</label>
+        <input type="text" class="form-control" id="equipmentname" formControlName="equipmentname">
+    </div>
+    <div class="row mb-3">
+        <label for="partid" class="form-label" class="required">Part Id</label>
+        <input type="text" class="form-control" id="partid" formControlName="partid">
+        <div class="form-text text-danger" *ngIf="PartId.errors?.['maxlength'] && (PartId.dirty || PartId.touched)">
+            Maximum Equipment Name length can be 5 characters long only.
+          </div>
+          <div class="form-text text-danger" *ngIf="PartId.errors?.['required'] && (PartId.dirty || PartId.touched)">
+           Please Enter PartId.
+          </div>
+          <div class="form-text text-danger" *ngIf="PartId.errors?.['pattern'] && (PartId.dirty || PartId.touched)">
+             Part Id cannot contain special characters. 
+          </div>
+    </div>
+    <div class="form-group row mb-3">
+        <label class="required">Equipment Category</label>
+        <select formControlName="equipmentcategoryid" (change)="GetEquipGroupById($any($event.target).value)" class="form-control" >
+            <option value="" disabled selected>Select equipment category</option>
+            <option [value]="equipCat.equipmentCategoryId" *ngFor="let equipCat of equipmentCategoryList">{{equipCat.equipmentCategoryName}}</option>
+        </select>
+    </div>
+    <div class="form-group row mb-3">
+       <label class="required">Equipment Group</label>
+        <select formControlName="equipmentgroupid" class="form-control">
+           <option value="" disabled selected>Select equipment group</option>
+           <option [value]="equipGrp.equipmentGroupId"  *ngFor="let equipGrp of equipmentGroupList">{{equipGrp.equipmentGroupName}}</option>
+        </select>
+    </div>
+    <div class="row">
+        <div class="col-6 offset-3 mb-3">
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary" [disabled]="updateEquipmentForm.invalid">Update Equipment</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mb-3">
+            <span class="me-3" >For Adding Equipment</span><a routerLink="/equipment">Add Equipment</a>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,11 @@
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.required::after{
+    content: " *";
+    color: red;
+    font-size: 20px;
+}

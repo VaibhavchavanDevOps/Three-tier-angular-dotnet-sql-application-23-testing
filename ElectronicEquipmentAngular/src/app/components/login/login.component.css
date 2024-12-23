@@ -1,0 +1,6 @@
+form{
+    width: 500px;
+}
+.required::after{
+    content: " *";
+}

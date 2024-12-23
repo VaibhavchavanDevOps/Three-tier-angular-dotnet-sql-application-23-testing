@@ -1,0 +1,43 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:53070",
+      "sslPort": 44379
+    }
+  },
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "ElectricEquipmentDotNetCoreProject": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:5001;http://localhost:5000"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/weatherforecast",
+      "publishAllPorts": true,
+      "useSSL": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production",  # Use Production for Docker deployments
+        "ConnectionStrings__Database": "Server=Server=dbinstance.cnk0u26aswzz.us-east-1.rds.amazonaws.com,1433;Database=dbinstance;User Id=admin;Password=vaibhavchavan",  #  Ensure this is correct
+        "jwtConfig__Key": "Bhaskarmehtajharkhand",  # The JWT key for authentication
+        "jwtConfig__Duration": "1"  # Duration for the JWT token
+        }
+    }
+  }
+}

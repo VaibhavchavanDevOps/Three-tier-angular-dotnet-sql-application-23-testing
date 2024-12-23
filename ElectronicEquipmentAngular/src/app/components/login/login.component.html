@@ -1,0 +1,33 @@
+<form [formGroup]="loginForm" (ngSubmit)="userLogin()"  class="border p-3">
+    <div class="row g-0">
+        <div class="col text-center p-2 mb-3 gb-light">
+           <span class="fs-3">Login 1.1.9</span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="username" class="form-label" class="required">User Name</label>
+        <input type="text" class="form-control" id="username" formControlName="username">
+        <div class="form-text text-danger" *ngIf="Username.errors?.['required'] && (Username.dirty || Username.touched)">
+            Please Enter Username
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="password" class="form-label" class="required">Password</label>
+        <input type="password" class="form-control" id="password" formControlName="password">
+        <div class="form-text text-danger" *ngIf="Password.errors?.['required'] && (Password.dirty || Password.touched)">
+            Please Enter Password
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 offset-3 mb-3" >
+            <div class="d-grid">
+                <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Login</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-3">
+            <span class="me-3" >SignUp Here</span><a routerLink="/user">SignUp</a>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,14 @@
+<form  [formGroup]="equipmentForm"  class="border p-3">
+    <div class="row g-0">
+        <div class="col text-center p-2 mb-3 gb-light">
+           <span class="fs-3">Delete Equipments</span>
+        </div>
+    </div>
+    <div class="form-group row mb-3">
+        <label>Equipment</label>
+        <select formControlName="equipment" (input)="getEquipmentId($any($event.target).value)" class="form-control" >    
+            <option value="0" disabled selected>Delete Equipment</option>
+            <option [value]="equip.equipmentId" *ngFor="let equip of equipmentList" type="number">{{equip.equipmentName}}</option>
+        </select>
+    </div>
+</form>

@@ -1,0 +1,29 @@
+<form [formGroup]="equipmentCategoryForm" (ngSubmit)="equipmentCategoryAdded()"  class="border p-3">
+    <div class="row g-0">
+        <div class="col text-center p-2 mb-3 gb-light">
+           <span class="fs-3">Equipment Category</span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="equipmentcategoryname" class="form-label" class="required">EquipmentCategory Name</label>
+        <input type="text" class="form-control" id="equipmentcategoryname" formControlName="equipmentcategoryname">
+        <div class="form-text text-danger" *ngIf="EquipmentCategory.errors?.['maxlength'] && (EquipmentCategory.dirty || EquipmentCategory.touched)">
+            Maximum Equipment Name length can be 10 characters long only.
+        </div>
+        <div class="form-text text-danger" *ngIf="EquipmentCategory.errors?.['required'] && (EquipmentCategory.dirty || EquipmentCategory.touched)">
+           Please Enter Equipment Category.
+        </div>
+        <div class="form-text text-danger" *ngIf="EquipmentCategory.errors?.['pattern'] && (EquipmentCategory.dirty || EquipmentCategory.touched)">
+            Please enter  correct equipmentcategory name. 
+        </div>
+    </div>  
+    
+    <div class="row">
+        <div class="col-6 offset-3 mb-3">
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Add EquipmentCategory</button>
+            </div>
+        </div>
+    </div>
+</form>
+
