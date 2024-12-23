@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: vaibhavnitor/backend-23.2:latest
+        image: vaibhavnitor/backend-24.1:latest
         ports:
         - containerPort: 81
         env:
