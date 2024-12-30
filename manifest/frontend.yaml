@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: vaibhavnitor/frontend-24.1:latest
+        image: gcr.io/poc-cluster-443705/frontend:latest
         ports:
         - containerPort: 80
         env:
