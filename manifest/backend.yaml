@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: gcr.io/poc-cluster-443705/backend:latest
+        image: gcr.io/poc-cluster-443705/backend-1:latest
         ports:
         - containerPort: 81
         env:
