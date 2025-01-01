@@ -16,14 +16,14 @@ spec:
     spec:
       containers:
       - name: backend
-        image: vaibhavnitor/backend-31.2:latest
+        image: vaibhavnitor/backend-1:latest
         ports:
         - containerPort: 81
         env:
         - name: ASPNETCORE_ENVIRONMENT
           value: "Production"
         - name: ConnectionStrings__Database
-          value: "Server=35.238.190.192,1433;Database=mysql-db;User Id=sqlserver;Password=vaibhavchavan;"
+          value: "Server=database-1.cnk0u26aswzz.us-east-1.rds.amazonaws.com,1433;Database=database-1;User Id=admin;Password=vaibhavchavan;"
         - name: jwtConfig__Key
           value: "Bhaskarmehtajharkhand"
         - name: jwtConfig__Duration
